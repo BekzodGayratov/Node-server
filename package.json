@@ -10,12 +10,13 @@
   "author": "Bekzod",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-request-id": "^3.0.0",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
-    "mongodb": "^4.11.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.7.0",
     "path": "^0.12.7"
   },
