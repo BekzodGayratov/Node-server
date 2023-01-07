@@ -4,11 +4,11 @@ const bcrypt = require('bcryptjs');
 const e = require('express');
 const seckretKey = process.env.SECRET_KEY;
 
-var register = async (req, res) => {
+const register = async (req, res) => {
     try {
-        const { first_name, last_name, phone_number } = req.body;
+        const { first_name, last_name, phone_number, password } = req.body;
         if (!(first_name && last_name && phone_number)) {
-            res.status(400).send({
+            res.json({
                 "status": false,
                 "message": "All inputs are required"
             });
@@ -18,7 +18,7 @@ var register = async (req, res) => {
 
 
         if (oldUser) {
-            return res.status(200).json({
+            res.json({
                 "status": true,
                 "isRegistered": true,
                 "message": "User already exist. Please login"
@@ -33,7 +33,8 @@ var register = async (req, res) => {
         const user = UserModel.create({
             first_name: first_name,
             last_name: last_name,
-            phone_number: phone_number
+            phone_number: phone_number,
+            password: password
         });
 
         (await user).save((err, data) => {

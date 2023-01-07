@@ -15,6 +15,16 @@ const user = new Schema({
         default: null,
         required: true,
     },
+    password: {
+        type: String,
+        default: null,
+        required: true,
+    },
+    access_token:{
+        type: String,
+        required: true,
+        default: null
+    }
 
 });
 
